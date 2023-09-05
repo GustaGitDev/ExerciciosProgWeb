@@ -1,0 +1,6 @@
+A primeira frase.
+A segunda frase.
+A terceira frase.
+A quarta frase.
+A quinta frase.
+A sexta frase.
