@@ -7,19 +7,15 @@
     $nome4 = $_POST['n4'];
     $nome5 = $_POST['n5'];
 
-    fwrite($arquivo, $nome1);
-    fwrite($arquivo, "<br><br>");
-    fwrite($arquivo, $nome2);
-    fwrite($arquivo, "<br><br>");
-    fwrite($arquivo, $nome3);
-    fwrite($arquivo, "<br><br>");
-    fwrite($arquivo, $nome4);
-    fwrite($arquivo, "<br><br>");
-    fwrite($arquivo, $nome5);
+    function escreverTexto($abrir, $nomes){
 
-    if ($arquivo){
+        fwrite($abrir, "$nomes \n");
+
+    }
+
+    function lerTexto(){
+
         $arquivo = fopen("arquivo.txt", "r");
-        echo "O script abriu o arquivo. <br><br>";
 
         $lista = array();
 
@@ -30,8 +26,23 @@
         fclose($arquivo);
 
         foreach($lista as $textos){
-            echo $textos;
+            echo "<p>$textos</p>";
         }
+
+    }
+
+
+    if ($arquivo){
+
+        escreverTexto($arquivo, $nome1);
+        escreverTexto($arquivo, $nome2);
+        escreverTexto($arquivo, $nome3);
+        escreverTexto($arquivo, $nome4);
+        escreverTexto($arquivo, $nome5);
+        
+        echo "O script abriu o arquivo. <br><br>";
+        
+        lerTexto();
 
     }
     else{
